@@ -1,0 +1,61 @@
+.div {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.todo-box {
+  width:300px;
+  border:solid 3px rgb(255, 0, 0);
+  height:190px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left:20px;
+  margin-top:20px;
+}
+
+.div-span {
+  display: flex;
+  flex-direction: column;
+  margin-left:0px;
+}
+
+
+
+.div-span span:nth-child(1) {
+  font-size:20px;
+}
+
+.div-span span:nth-child(2) {
+  font-size:15px;
+}
+
+.div-button {
+  width:100%;
+  display: flex;
+  justify-content: left;
+}
+
+.div-button > button {
+  background-color: white;
+  cursor: pointer;
+  font-weight: 600;
+  font-size:15px;
+}
+
+.div-button > button:nth-child(1) {
+  border-color:red
+}
+
+.div-button > button:nth-child(2) {
+  border-color:rgb(50, 189, 19)
+}
+
+.todo-box-container {
+  display: flex;
+  flex-wrap:wrap;
+}

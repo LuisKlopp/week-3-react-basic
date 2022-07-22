@@ -1,0 +1,11 @@
+.header-div {
+  border:solid 1px rgb(178, 178, 178);
+  height:50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-div span {
+  line-height: 50px;
+  padding: 0px 20px 0px 20px;
+}
