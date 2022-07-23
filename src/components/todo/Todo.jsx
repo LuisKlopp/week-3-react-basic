@@ -1,16 +1,22 @@
+/*eslint-disable*/
 import React from 'react';
 import "./todo.css";
+import { useState } from 'react';
 
 
-function Todo({arr, setArr}) {
+
+function Todo({arr, setArr, todo, i}) {
+
+  // const set_arr = (e) => {
+    
+  // };
+
+
   return (
-    <div className="todo-box-container">
-    {arr.map((a) => {
-      return(
-      <div className="todo-box" key={a.key}>
+      <div className="todo-box">
       <div className="div-span">
-        <span className="title-span">{a.title}</span>
-        <span className="content-span">{a.content}</span>
+        <span className="title-span">{todo.title}</span>
+        <span className="content-span">{todo.content}</span>
       </div>
       <div className="div-button">
         <button onClick={ (e) => {
@@ -18,11 +24,10 @@ function Todo({arr, setArr}) {
           todo_box.remove()
         }
         }>삭제하기</button>
-        <button>완료</button>
+        <button onClick={(e) => {
+          console.log(e.target)
+        }}>{todo.isDone}</button>
       </div>
-    </div>
-      )
-    })}
     </div>
 
 

@@ -1,8 +1,17 @@
+/*eslint-disable*/
 import React from 'react';
 import "./form.css";
+import { useState } from 'react';
 
 
 function Form({arr, setArr}) {
+
+  let [ id, setId ] = useState(0);
+
+  const increase_id = () => {
+    setId(id + 1);
+  }
+  
   return (
     <div className="form-box">
       <div className="items-1">
@@ -16,10 +25,12 @@ function Form({arr, setArr}) {
           let title = document.querySelector('.title')
           let content = document.querySelector('.content')
           let arr_1 = [...arr]
+          increase_id();
           let obj = {
-            key : arr_1.length,
+            key : id,
             title : title.value,
-            content : content.value
+            content : content.value,
+            isDone : '완료!'
           }
           arr_1.push(obj)
           setArr(arr_1)
