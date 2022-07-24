@@ -5,11 +5,7 @@ import { useState } from 'react';
 
 
 
-function Todo({arr, setArr, todo, i}) {
-
-  // const set_arr = (e) => {
-    
-  // };
+function Todo({todo, set_btn}) {
 
 
   return (
@@ -25,7 +21,7 @@ function Todo({arr, setArr, todo, i}) {
         }
         }>삭제하기</button>
         <button onClick={(e) => {
-          console.log(e.target)
+          set_btn(todo);
         }}>{todo.isDone}</button>
       </div>
     </div>

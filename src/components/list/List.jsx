@@ -5,7 +5,36 @@ import Todo from '../todo/Todo';
 
 function List({arr, setArr}) {
 
-  const map_arr = arr.map((todo, i) => (<Todo arr={arr} setArr={setArr} todo={todo} i={i}/>))
+
+
+  const set_btn = (todo) => {
+
+    let new_arr = arr;
+
+    let new_obj = new_arr.map(user => {
+        if ( user.key === todo.key ) {
+          if (user.isDone === '완료!') {
+            return (
+              {...user, isDone : '취소!'}
+            )
+          } else {
+            return (
+              {...user, isDone : '완료!'}
+            )
+          }
+        } else {
+          return {...user}
+        }
+      })
+
+    setArr(new_obj);
+  } 
+
+  
+  const working_filter = arr.filter((element) => { return element.isDone === '완료!' })
+  const done_filter = arr.filter((element) => { return element.isDone === '취소!' })
+  const map_arr = working_filter.map((todo, i) => (<Todo set_btn={set_btn} todo={todo} key={i}/>))
+  const done_arr = done_filter.map((todo, i) => (<Todo set_btn={set_btn} todo={todo} key={i}/>))
 
   return (
 
@@ -16,7 +45,9 @@ function List({arr, setArr}) {
           I'm working hard 🔥🔥🔥
         </span>
         <div className="map-list">
-        {map_arr}
+          {
+           map_arr
+          }
         </div>
       </div>
       <div className="list-2">
@@ -24,7 +55,9 @@ function List({arr, setArr}) {
         I'm done with my work 🎉🎉🎉
         </span>
         <div className="map-list">
-          
+          {
+            done_arr
+          }
         </div>
       </div>
     </div>

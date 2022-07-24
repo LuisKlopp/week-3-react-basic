@@ -3,9 +3,14 @@
   font-weight: 600;
 }
 
-.list-box div {
+.list-1{ 
   padding:20px;
 }
+
+.list-2 {
+  padding:20px;
+}
+
 
 .map-list {
   display: flex;
