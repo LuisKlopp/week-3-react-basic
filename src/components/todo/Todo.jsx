@@ -13,6 +13,7 @@ function Todo({todo, set_btn}) {
       <div className="div-span">
         <span className="title-span">{todo.title}</span>
         <span className="content-span">{todo.content}</span>
+        <span className="content-span">{todo.key}</span>
       </div>
       <div className="div-button">
         <button onClick={ (e) => {
