@@ -7,9 +7,9 @@ function List({arr, setArr}) {
 
 
 
-  const set_btn = (todo) => {
+  const setBtn = (todo) => {
 
-    let new_arr = arr;
+    let new_arr = [...arr]
 
     let new_obj = new_arr.map(user => {
         if ( user.key === todo.key ) {
@@ -30,11 +30,25 @@ function List({arr, setArr}) {
     setArr(new_obj);
   } 
 
+
+
+
+
+
+
   
-  const working_filter = arr.filter((element) => { return element.isDone === '완료!' })
-  const done_filter = arr.filter((element) => { return element.isDone === '취소!' })
-  const map_arr = working_filter.map((todo, i) => (<Todo set_btn={set_btn} todo={todo} key={i}/>))
-  const done_arr = done_filter.map((todo, i) => (<Todo set_btn={set_btn} todo={todo} key={i}/>))
+  const working_filter = arr.filter((todo) => { return todo.isDone === '완료!' }).map((todo, i) => {
+    return (<Todo setBtn={setBtn} todo={todo} setArr={setArr} arr={arr} key={i} i={i}/>)
+  })
+
+  const done_filter = arr.filter((todo) => { return todo.isDone === '취소!' }).map((todo, i) => {
+    return (<Todo setBtn={setBtn} todo={todo} setArr={setArr} arr={arr} key={i} i={i}/>)
+  })
+  // console.log(working_filter)
+  // console.log(done_filter)
+
+  // const map_arr = working_filter.map((todo, i) => (<Todo setBtn={setBtn} todo={todo} setArr={setArr} arr={arr} key={i} i={i}/>))
+  // const done_arr = done_filter.map((todo, i) => (<Todo setBtn={setBtn} todo={todo}  setArr={setArr} arr={arr} key={i} i={i}/>))
 
   return (
 
@@ -45,9 +59,7 @@ function List({arr, setArr}) {
           I'm working hard 🔥🔥🔥
         </span>
         <div className="map-list">
-          {
-           map_arr
-          }
+          {working_filter}
         </div>
       </div>
       <div className="list-2">
@@ -55,9 +67,7 @@ function List({arr, setArr}) {
         I'm done with my work 🎉🎉🎉
         </span>
         <div className="map-list">
-          {
-            done_arr
-          }
+          {done_filter}
         </div>
       </div>
     </div>

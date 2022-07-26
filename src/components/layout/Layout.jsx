@@ -8,7 +8,7 @@ import Todo from '../todo/Todo';
 
 
 
-function Layout({arr, setArr, done_arr, setDone}) {
+function Layout({arr, setArr}) {
   return (
     <div className="layout-div">
       <div className="todo-container">
