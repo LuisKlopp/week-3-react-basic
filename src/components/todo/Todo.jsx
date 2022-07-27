@@ -20,8 +20,6 @@ function Todo({todo, setBtn, setArr, arr, i}) {
         <button onClick={ (e) => {
           const todo_box = e.target.parentElement.parentElement
           todo_box.remove()
-          console.log(arr)
-
           // let arr_1 = [...arr]
           // arr_1.splice(i, 1)
           // setArr(arr_1)

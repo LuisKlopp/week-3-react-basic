@@ -44,6 +44,7 @@ function List({arr, setArr}) {
   const done_filter = arr.filter((todo) => { return todo.isDone === '취소!' }).map((todo, i) => {
     return (<Todo setBtn={setBtn} todo={todo} setArr={setArr} arr={arr} key={i} i={i}/>)
   })
+  
   // console.log(working_filter)
   // console.log(done_filter)
 
