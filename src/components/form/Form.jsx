@@ -33,6 +33,7 @@ function Form({arr, setArr}) {
     arr_1.push({...inputs, key: id})
     setArr(arr_1)
     setId(id => id + 1)
+    console.log(arr_1)
   }
 
   return (

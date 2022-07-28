@@ -7,7 +7,10 @@ import { useEffect } from 'react';
 
 function Todo({todo, setBtn, setArr, arr, i}) {
 
-  
+  useEffect(() => {
+    console.log(todo)
+  }, []);
+
   return (
 
       <div className="todo-box">
@@ -17,14 +20,20 @@ function Todo({todo, setBtn, setArr, arr, i}) {
         <span style={{fontSize:"20px"}}>{todo.key}</span>
       </div>
       <div className="div-button">
-        <button onClick={ (e) => {
-          const todo_box = e.target.parentElement.parentElement
-          todo_box.remove()
-          // let arr_1 = [...arr]
-          // arr_1.splice(i, 1)
-          // setArr(arr_1)
-          // console.log(arr_1)
-          // console.log(todo.key)
+        <button onClick={ () => {
+          let arr_1 = [...arr]
+
+          // if (todo.isDone === '완료!') {
+          //   arr_1.splice(i, 1)
+          // } else {
+          // }
+          arr_1 = arr_1.filter((element) => {
+            console.log(element.key)
+            return element.key !== todo.key 
+          })
+          console.log(todo.key)
+          setArr(arr_1)
+
         }
         }>삭제하기</button>
         <button onClick={() => {

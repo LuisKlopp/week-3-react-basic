@@ -35,16 +35,17 @@ function List({arr, setArr}) {
 
 
 
+  const filter_arr = [...arr]
 
   
-  const working_filter = arr.filter((todo) => { return todo.isDone === '완료!' }).map((todo, i) => {
+  const working_filter = filter_arr.filter((todo) => { return todo.isDone === '완료!' }).map((todo, i) => {
     return (<Todo setBtn={setBtn} todo={todo} setArr={setArr} arr={arr} key={i} i={i}/>)
   })
 
-  const done_filter = arr.filter((todo) => { return todo.isDone === '취소!' }).map((todo, i) => {
+  const done_filter = filter_arr.filter((todo) => { return todo.isDone === '취소!' }).map((todo, i) => {
     return (<Todo setBtn={setBtn} todo={todo} setArr={setArr} arr={arr} key={i} i={i}/>)
   })
-  
+
   // console.log(working_filter)
   // console.log(done_filter)
 
